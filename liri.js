@@ -1,3 +1,4 @@
-require("dotenv").config();
+ require(".env").config();
+ var importKeys = require("./keys.js");
 
-module.exports = importKeys
+console.log(importKeys.Twitter);

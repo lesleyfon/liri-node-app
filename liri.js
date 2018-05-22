@@ -36,11 +36,17 @@ if (userTitle === "") {
 
 switch (userAction) {
   case "my-tweets":
+  console.log("========================================== Tweets ==========================================")
     myTweets();
+    break;
   case "spotify-this-song":
+  console.log("========================================== spotify ==========================================")
     spotifySearch(defaultSong);
+    break;
   case "movie-this":
+  console.log("========================================== omdb ==========================================")
     movieFnctn(defaultMovie);
+    break;
 }
 
 
@@ -65,10 +71,11 @@ function myTweets() {
 // The album that the song is from
 
 function spotifySearch(song) {
-  console.log(song)
+  // console.log(song)
   spotify.search({
     type: "track",
-    query: song
+    query: song,
+    limit: 1,
   },
     function (error, data) {
       if (error) {
@@ -95,16 +102,6 @@ function movieFnctn(movie) {
 
     // If the request is successful
     if (!error && response.statusCode === 200) {
-
-      // * Title of the movie.
-      // * Year the movie came out.
-      // * IMDB Rating of the movie.
-      // * Rotten Tomatoes Rating of the movie.
-      // * Country where the movie was produced.
-      // * Language of the movie.
-      // * Plot of the movie.
-      // * Actors in the movie.
-
       // Parse the body of the site and recover just the imdbRating
       // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
       var result = JSON.parse(body)
@@ -120,6 +117,8 @@ function movieFnctn(movie) {
     }
   });
 }
+
+
 // update my switch statement and add add the do what it says action 
 // define do what it says function
 // do a .split(",")

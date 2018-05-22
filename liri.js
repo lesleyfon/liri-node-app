@@ -36,15 +36,15 @@ if (userTitle === "") {
 
 switch (userAction) {
   case "my-tweets":
-  console.log("========================================== Tweets ==========================================")
+    console.log("========================================== Tweets ==========================================")
     myTweets();
     break;
   case "spotify-this-song":
-  console.log("========================================== spotify ==========================================")
+    console.log("========================================== spotify ==========================================")
     spotifySearch(defaultSong);
     break;
   case "movie-this":
-  console.log("========================================== omdb ==========================================")
+    console.log("========================================== omdb ==========================================")
     movieFnctn(defaultMovie);
     break;
 }
@@ -65,11 +65,6 @@ function myTweets() {
   });
 }
 
-// Artist(s)
-// The song's name
-// A preview link of the song from Spotify
-// The album that the song is from
-
 function spotifySearch(song) {
   // console.log(song)
   spotify.search({
@@ -81,8 +76,9 @@ function spotifySearch(song) {
       if (error) {
         return console.log("error occured: " + error);
       }
-      console.log(JSON.stringify(data, null, 2))
-      console.log("---------------------");
+      //
+      // console.log(JSON.stringify(data, null, 2))
+      // console.log("---------------------");
       console.log("Artist: " + data.tracks.items[0].artists[0].name)
       console.log("Track: " + data.tracks.items[0].name)
       console.log("Preview-link: " + data.tracks.items[0].preview_url)
